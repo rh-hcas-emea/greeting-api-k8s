@@ -1,13 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-commonLabels:
-  environment: prod
-
 resources:
-- app
-- argocd-hook
+  - ../../../variants/dev
 
-images:
-- digest: sha256:28dfd3b20124f04c2eeecd4073f53ada5216d81fe3992d7bc2ff3c2646bf919a
-  name: quay.io/tstockwell/greeting-api
+patches:
+  - path: patch-route.yml
+
+configMapGenerator:
+  - name: hook-config
+    behavior: merge
+    literals:
+      - WEBHOOK_URL=http://webhooks.demo-gitops-cicd-cicd.apps.paas.lab.stocky37.dev

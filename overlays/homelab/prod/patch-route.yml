@@ -3,4 +3,4 @@ kind: Route
 metadata:
   name: greeting-api
 spec:
-  host: greeting-api.demo-gitops-cicd-prod.apps.paas.lab.stocky37.dev
+  host: greeting-api.demo-gitops-cicd.apps.paas.lab.stocky37.dev
