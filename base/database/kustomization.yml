@@ -10,7 +10,7 @@ commonLabels:
 
 
 resources:
-- deployment.yml
-- persistentvolumeclaim.yml
-- secret.yml
-- service.yml
+  - deployment.yml
+  - persistentvolumeclaim.yml
+  - secret.yml
+  - service.yml

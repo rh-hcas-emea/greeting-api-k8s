@@ -6,7 +6,7 @@ commonLabels:
 
 resources:
 - app
-- argocd
+- argocd-hook
 
 images:
 - digest: sha256:28dfd3b20124f04c2eeecd4073f53ada5216d81fe3992d7bc2ff3c2646bf919a

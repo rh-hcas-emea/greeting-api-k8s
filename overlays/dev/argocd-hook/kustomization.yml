@@ -3,10 +3,11 @@ kind: Kustomization
 nameSuffix: -dev
 
 components:
-  - ../../../components/argocd-hooks
+  - ../../../components/argocd-hook
 
 configMapGenerator:
-  - name: postsync-env
+  - name: hook-config
     behavior: merge
     literals:
       - ENVIRONMENT=dev
+      - WEBHOOK_URL=http://webhooks.demo-gitops-cicd-cicd.apps.paas.lab.stocky37.dev
