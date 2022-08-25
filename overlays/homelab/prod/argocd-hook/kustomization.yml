@@ -3,7 +3,7 @@ kind: Kustomization
 nameSuffix: -prod
 
 components:
-  - ../../../components/argocd-hook
+  - ../../../../components/argocd-hook
 
 configMapGenerator:
   - name: hook-config

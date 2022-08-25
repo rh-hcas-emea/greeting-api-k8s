@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: demo-gitops-cicd-prod
 
 resources:
-- ../../../base
+  - ../../../../base
 
 patches:
-- path: patch-route.yml
+  - path: patch-route.yml
