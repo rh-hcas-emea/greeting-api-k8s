@@ -8,7 +8,6 @@ commonLabels:
   app.kubernetes.io/component: database
   app.openshift.io/runtime: postgresql
 
-
 resources:
   - deployment.yml
   - persistentvolumeclaim.yml

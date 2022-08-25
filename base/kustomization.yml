@@ -5,8 +5,13 @@ commonAnnotations:
   app.openshift.io/vcs-uri: https://github.com/tom-stockwell/greeting-api.git
 
 commonLabels:
-  app.kubernetes.io/part-of: greeting-app
+  app: &app greeting-api
+  app.kubernetes.io/name: *app
+  app.kubernetes.io/instance: *app
+  app.kubernetes.io/component: backend
+  app.openshift.io/runtime: quarkus
 
 resources:
-- app
-- database
+  - deployment.yml
+  - route.yml
+  - service.yml

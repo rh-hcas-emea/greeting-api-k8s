@@ -3,6 +3,6 @@ kind: Kustomization
 namespace: demo-gitops-cicd-stage
 
 resources:
-  - ../../../base
+  - ../../default
 
 

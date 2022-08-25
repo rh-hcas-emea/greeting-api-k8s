@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: demo-gitops-cicd-prod
 
 resources:
-  - ../../../base
+  - ../../default
