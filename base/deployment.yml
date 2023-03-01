@@ -14,26 +14,11 @@ spec:
     spec:
       containers:
       - name: greeting-api
-        image: quay.io/tstockwell/greeting-api:latest
+        image: quay.io/rh-hcas-emea/greeting-api:latest
         ports:
         - containerPort: 8080
           protocol: TCP
-        env:
-        - name: DATABASE_NAME
-          valueFrom:
-            secretKeyRef:
-              key: database-name
-              name: greeting-db
-        - name: QUARKUS_DATASOURCE_USERNAME
-          valueFrom:
-            secretKeyRef:
-              key: database-user
-              name: greeting-db
-        - name: QUARKUS_DATASOURCE_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              key: database-password
-              name: greeting-db
+        env: []
         livenessProbe:
           httpGet:
             path: /q/health/live

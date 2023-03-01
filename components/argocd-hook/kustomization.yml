@@ -1,10 +1,11 @@
-apiVersion: kustomize.config.k8s.io/v1alpha1
-kind: Component
-namespace: demo-gitops-cicd-gitops
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: demo-gitops
 namePrefix: greeting-api-
 
-commonLabels:
-  app: greeting-api
+labels:
+  - pairs:
+      app: greeting-api
 
 resources:
   - https://github.com/tom-stockwell/gitops-common//argocd-hook/variants/postsync?ref=main
@@ -14,3 +15,5 @@ configMapGenerator:
     behavior: merge
     literals:
       - APP_NAME=greeting-api
+      - WEBHOOK_URL=http://webhooks-demo-cicd.apps.demo-gitops-cicd.emea.hcaocp.com
+
