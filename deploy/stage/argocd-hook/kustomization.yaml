@@ -9,4 +9,4 @@ configMapGenerator:
   - name: hook-config
     behavior: merge
     literals:
-      - ENVIRONMENT=dev
+      - ENVIRONMENT=stage
