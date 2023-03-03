@@ -22,8 +22,12 @@ spec:
         livenessProbe:
           httpGet:
             path: /q/health/live
-            port: 8080
+            port: &port 8080
         readinessProbe:
           httpGet:
             path: /q/health/ready
-            port: 8080
+            port: *port
+        startupProbe:
+          httpGet:
+            path: /q/health/started
+            port: *port
