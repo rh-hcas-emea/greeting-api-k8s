@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../base/argocd-hook/overlays/postsync
+
+components:
+  - ../components/argocd-hook/webhook-url
+  - ../components/argocd-hook/dev
+  - ../components/argocd-hook/greeting-api

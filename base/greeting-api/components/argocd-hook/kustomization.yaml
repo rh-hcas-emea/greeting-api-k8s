@@ -8,7 +8,7 @@ labels:
       app: greeting-api
 
 resources:
-  - https://github.com/tom-stockwell/gitops-common//argocd-hook/variants/postsync?ref=main
+  - ../../../argocd-hook/overlays/postsync
 
 configMapGenerator:
   - name: hook-config

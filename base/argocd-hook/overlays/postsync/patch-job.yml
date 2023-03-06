@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hook
+  annotations:
+    argocd.argoproj.io/hook: &hook PostSync
+spec:
+  template:
+    spec:
+      containers:
+        - name: script
+          env:
+            - name: HOOK_TYPE
+              value: *hook

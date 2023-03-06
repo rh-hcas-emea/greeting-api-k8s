@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hook
+spec:
+  template:
+    spec:
+      containers:
+        - name: script
+          env:
+            - name: WEBHOOK_URL
+              value: http://webhooks-demo-cicd.apps.demo-gitops-cicd.emea.hcaocp.com

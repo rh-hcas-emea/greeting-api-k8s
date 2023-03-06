@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hook
+spec:
+  template:
+    spec:
+      containers:
+        - name: script
+          env:
+            - name: APP_NAME
+              value: greeting-ui

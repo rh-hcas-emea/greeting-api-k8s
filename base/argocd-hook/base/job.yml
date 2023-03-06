@@ -1,0 +1,45 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hook
+  annotations:
+    argocd.argoproj.io/hook: <todo>
+spec:
+  template:
+    spec:
+      containers:
+        - name: script
+          image: registry.access.redhat.com/ubi9/s2i-base
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: HOOK_TYPE
+              value: <override>
+            - name: APP_NAME
+              value: <override>
+            - name: WEBHOOK_URL
+              value:
+            - name: ENVIRONMENT
+              value: <override>
+          command:
+            - /bin/bash
+            - -c
+            - |
+              set -eux
+              
+              TEMPLATE="${PAYLOAD_TEMPLATE:-/tmp/template.json}"
+              
+              if [ ! -f "${TEMPLATE}" ]; then
+                cat > "${TEMPLATE}" <<- EOF
+              {
+                  "name": "$APP_NAME",
+                  "environment": "$ENVIRONMENT"
+              }
+              EOF
+              fi
+              
+              curl -sX POST \
+                -H "Content-Type: application/json" \
+                -H "X-ArgoCD-Hook: $HOOK_TYPE" \
+                -d "$(envsubst < "$TEMPLATE")" \
+                "$WEBHOOK_URL"
+      restartPolicy: Never
