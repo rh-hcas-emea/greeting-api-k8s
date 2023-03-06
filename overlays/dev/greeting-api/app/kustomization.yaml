@@ -5,4 +5,4 @@ resources:
 components:
   - ../../../../components/namespace-dev
 patches:
-  - path: patch-deployment.yml
+  - path: patch-deployment.yaml
