@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: greeting-api
+  name: &name greeting-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      deployment: greeting-api
+      deployment: *name
   template:
     metadata:
       labels:
-        deployment: greeting-api
+        deployment: *name
     spec:
       containers:
-      - name: greeting-api
+      - name: app
         image: quay.io/rh-hcas-emea/greeting-api:latest
         ports:
         - containerPort: 8080

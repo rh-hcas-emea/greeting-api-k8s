@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greeting-api
+spec:
+  template:
+    spec:
+      containers:
+        - name: app
+          env:
+            - name: QUARKUS_HTTP_CORS_ORIGINS
+              value: https://greeting-ui-demo-prod.apps.demo-gitops-cicd.emea.hcaocp.com

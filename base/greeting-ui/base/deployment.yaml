@@ -13,7 +13,7 @@ spec:
         deployment: *name
     spec:
       containers:
-      - name: greeting-ui
+      - name: app
         image: quay.io/rh-hcas-emea/greeting-ui:latest
         imagePullPolicy: Always
         ports:

@@ -4,3 +4,5 @@ resources:
   - ../../../../base/greeting-api/overlays/default
 components:
   - ../../../../components/namespace-stage
+patches:
+  - path: patch-deployment.yml
