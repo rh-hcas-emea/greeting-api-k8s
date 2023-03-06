@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+labels:
+- pairs:
+    environment: stage
+
+resources:
+- app
+- postsync-hook
+
+images:
+- digest: sha256:2c96f1339db0a625dfd48733c3b1d1ef17ca9b9d731c88d5615c8a00172ff888
+  name: quay.io/rh-hcas-emea/greeting-api
