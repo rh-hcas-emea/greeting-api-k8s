@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: &name greeting-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: *name
+  template:
+    metadata:
+      labels:
+        deployment: *name
+    spec:
+      containers:
+      - name: greeting-ui
+        image: quay.io/rh-hcas-emea/greeting-ui:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: &port 8080
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /
+            port: *port
+        readinessProbe:
+          httpGet:
+            path: /
+            port: *port
+        startupProbe:
+          httpGet:
+            path: /
+            port: *port
+        volumeMounts:
+          - name: config
+            mountPath: /opt/app-root/src/env.js
+            subPath: env.js
+            readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: greeting-ui-config
