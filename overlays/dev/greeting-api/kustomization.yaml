@@ -7,8 +7,8 @@ labels:
 
 resources:
 - app
-- argocd-hook
+- postsync-hook
 
 images:
-- digest: sha256:a1fdc864a2b0c7cc049b303f2d3aa90589ff70f7c8eefd6afe0f6c2c876c76c9
+- digest: sha256:2c96f1339db0a625dfd48733c3b1d1ef17ca9b9d731c88d5615c8a00172ff888
   name: quay.io/rh-hcas-emea/greeting-api
