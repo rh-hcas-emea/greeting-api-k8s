@@ -14,6 +14,6 @@ labels:
       app.kubernetes.io/part-of: greeting-app
 
 resources:
-  - deployment.yml
-  - route.yml
-  - service.yml
+  - deployment.yaml
+  - route.yaml
+  - service.yaml

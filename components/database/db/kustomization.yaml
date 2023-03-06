@@ -11,7 +11,7 @@ labels:
       app.kubernetes.io/part-of: greeting-app
 
 resources:
-  - deployment.yml
-  - persistentvolumeclaim.yml
-  - secret.yml
-  - service.yml
+  - deployment.yaml
+  - persistentvolumeclaim.yaml
+  - secret.yaml
+  - service.yaml
