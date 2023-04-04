@@ -10,5 +10,5 @@ resources:
 - postsync-hook
 
 images:
-- digest: sha256:b67fa7af19e3502ea14815c61657e5580cf435f2ae08c0cfdad031661c912f3d
+- digest: sha256:02cf31897c445a11073d1efc9b24f8417cc2eb95b8664c71ce2efbea79a2cb42
   name: quay.io/rh-hcas-emea/greeting-ui
